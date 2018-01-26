@@ -31,6 +31,21 @@ h1, h2, h3, h4, h5,
   color: #000 !important;
 }
 
+.architecture{
+    background: url(../../images/architecture.jpg) center center no-repeat;
+    background-size: 100%;
+    width: 991px;
+    height: 700px;
+}
+@media screen and (max-width: 991px) {
+    .architecture{
+        background: url(../../images/architecture.jpg) center center no-repeat;
+        background-size: 100%;
+        width: 600px;
+        height: 425px;
+    }
+}
+
 .text-primary {
   color: #4586FF !important; }
 
