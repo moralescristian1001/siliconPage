@@ -7,7 +7,7 @@
         "aws-sdk": "latest",
         "express": "^4.15.4",
         "body-parser": "latest",
-        "nodemailer":"latest"
+        "nodemailer": "latest"
     },
     "scripts": {
         "start": "node app.js"
