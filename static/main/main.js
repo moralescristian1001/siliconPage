@@ -138,7 +138,54 @@ $(document).ready(function($) {
 		} , { offset: '95%' } );
 	};
 	contentWayPoint();
+	$("#emailButton").click(function () {
 
+
+		var url = window.location.href+"sendEmail"; 
+		var message = $('#message').val();
+		var name = $('#name').val();
+		var email = $('#email').val();
+		if (name == "") {
+			$('#name').addClass('required-field');
+		}else {
+			$('#name').removeClass('required-field');
+		}
+		if (message == ""){
+			$('#message').addClass('required-field');
+		} else {
+			$('#message').removeClass('required-field');
+		}
+		if (email == "") {
+			$('#email').addClass('required-field');
+		} else {
+			$('#email').removeClass('required-field');
+		}
+		if (message != "" && name != "" && email != ""){
+			var data = {
+				"dest": email,
+				"name": name,
+				"message": message
+			};
+			$.ajax({
+				type: "POST",
+				url: url,
+				data: data,
+				success: function (data) {
+					if (data.message == "ok") {
+						$('#message').val("");
+						$('#name').val("");
+						$('#email').val("");
+					}
+				},
+				error: function () {
+
+				},
+				dataType: "json"
+			});
+		} else {
+			alert("required field are empty");
+		}
+	});
 	// navigation
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {

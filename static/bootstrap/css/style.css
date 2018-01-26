@@ -538,6 +538,10 @@ textarea {
   visibility: visible;
   opacity: 1; }
 
+  .required-field{
+        border-color: red;
+  }
+
 #ftco-loader .circular {
   -webkit-animation: loader-rotate 2s linear infinite;
   animation: loader-rotate 2s linear infinite;
