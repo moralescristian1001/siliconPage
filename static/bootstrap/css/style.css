@@ -49,6 +49,13 @@ h1, h2, h3, h4, h5,
 .text-primary {
   color: #4586FF !important; }
 
+.navbar-dark .navbar-nav .nav-link{
+  color: rgba(255, 255, 255, 0.5);
+}
+.navbar-dark .navbar-collapse .nav-link{
+  color: #fff;
+}
+
 .ftco-navbar-light {
   background: transparent !important;
   position: absolute;
