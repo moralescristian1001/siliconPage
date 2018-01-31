@@ -23,19 +23,11 @@ if (cluster.isMaster) {
 
     // Code to run if we're in a worker process
 } else {
-    var AWS = require('aws-sdk');
+
     var express = require('express');
     var bodyParser = require('body-parser');
     var path = require("path");
     var nodemailer = require('nodemailer');
-
-    AWS.config.region = process.env.REGION
-
-    var sns = new AWS.SNS();
-    var ddb = new AWS.DynamoDB();
-
-    var ddbTable = process.env.STARTUP_SIGNUP_TABLE;
-    var snsTopic = process.env.NEW_SIGNUP_TOPIC;
     var app = express();
 
     app.set('view engine', 'ejs');
@@ -63,7 +55,7 @@ if (cluster.isMaster) {
     app.post('/sendEmail', function (req, res) {
         var reqJson = req.body;
         var destArray = reqJson.dest;
-        var title = "NeoAds contact form";
+        var title = "Silicon contact form";
         var message = reqJson.name +": " + reqJson.message;
         try{
             sendMailUser(destArray, title, message, res);
@@ -102,11 +94,11 @@ function sendMailUser(dest, title, message,res) {
 
         // setup email data with unicode symbols
         let mailOptions = {
-            from: '" NeoAds contact form-No Reply" <aprada@mobileaws.com>',       // sender address
+            from: '"Silicon contact form-No Reply" <aprada@mobileaws.com>',       // sender address
             to: 'andres@allcode.com,joel@allcode.com,mike@allcode.com',                           // list of receivers
-            subject: title,                            // Subject line
+            subject: 'Silicon contact form',                            // Subject line
                       // plain text body
-            html: '<h1> NeoAds contact form </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
+            html: '<h1> Silicon contact form </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
             attachments:
                 [
                 ]

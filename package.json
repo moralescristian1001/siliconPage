@@ -4,7 +4,6 @@
     "private": true,
     "dependencies": {
         "ejs": "latest",
-        "aws-sdk": "latest",
         "express": "^4.15.4",
         "body-parser": "latest",
         "nodemailer": "latest"

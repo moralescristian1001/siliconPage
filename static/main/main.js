@@ -141,7 +141,7 @@ $(document).ready(function($) {
 	$("#emailButton").click(function () {
 
 
-		var url = window.location.href+"sendEmail"; 
+		var url = "/sendEmail";
 		var message = $('#message').val();
 		var name = $('#name').val();
 		var email = $('#email').val();
@@ -198,7 +198,6 @@ $(document).ready(function($) {
 		  }, 700, 'easeInOutExpo', function(){
 		    window.location.hash = hash;
 		  });
-
 
 		  if ( navToggler.is(':visible') ) {
 		  	navToggler.click();
