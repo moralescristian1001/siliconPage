@@ -50,9 +50,9 @@
             "integrity": "sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0="
         },
         "ejs": {
-            "version": "2.3.3",
-            "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.3.3.tgz",
-            "integrity": "sha1-prq7Z4FdcZBpSvS6gv4GXlbV8Oc="
+            "version": "2.5.7",
+            "resolved": "https://registry.npmjs.org/ejs/-/ejs-2.5.7.tgz",
+            "integrity": "sha1-zIcsFoiArjxxiXYv1f/ACJbJUYo="
         },
         "http-errors": {
             "version": "1.6.2",
