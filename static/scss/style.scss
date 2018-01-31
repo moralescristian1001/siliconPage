@@ -56,11 +56,13 @@ h1, h2, h3, h4, h5,
 				padding-bottom: 30px;
 				padding-left: 20px;
 				padding-right: 20px;
+				color: #000!important;
 				@media screen and (max-width: $lg) {
 					padding-top: 10px;
 					padding-bottom: 10px;
 					padding-left: 0px;
 					padding-right: 0px;
+					color: #fff!important;
 				}
 			}
 			&.ftco-cta {
