@@ -3,9 +3,9 @@
     "version": "0.0.1",
     "private": true,
     "dependencies": {
+        "body-parser": "^1.18.2",
         "ejs": "latest",
         "express": "^4.15.4",
-        "body-parser": "latest",
         "nodemailer": "latest"
     },
     "scripts": {
