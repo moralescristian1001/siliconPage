@@ -68,11 +68,12 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light {
-  background: transparent !important;
+  background: #fff !important;
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 3; }
+  z-index: 3;
+  padding: 0; }
   .ftco-navbar-light #logo-white {
   display: inline; }
   .ftco-navbar-light #logo-blue {
@@ -87,6 +88,8 @@ h1, h2, h3, h4, h5,
     .ftco-navbar-light #logo-blue {
       display: inline; }
   }
+  .ftco-navbar-light .navbar-nav > .nav-item > .nav-link:hover {
+    color: #FE331A; }
   .ftco-navbar-light .navbar-nav > .nav-item > .nav-link {
     font-size: 16px;
     padding-top: 30px;
