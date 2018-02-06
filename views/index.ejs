@@ -18,6 +18,15 @@
     <link rel="stylesheet" href="<%= static_path +"/bootstrap/css/owl.theme.default.min.css" %>">
     <link rel="stylesheet" href="<%= static_path +"/bootstrap/css/icomoon.css" %>">
     <link rel="stylesheet" href="<%= static_path +"/bootstrap/css/style.css" %>">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-70444240-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-70444240-1');
+    </script>
   </head>
   <body data-spy="scroll" data-target="#ftco-navbar" data-offset="200">
     
@@ -42,7 +51,7 @@
     </nav>
     <!-- END nav -->
 
-    <section class="ftco-cover ftco-slant ftco-slant-white" style="background-image: url(images/red_bg.jpg);" id="section-home">
+    <section class="ftco-cover" style="background-image: url(images/red_bg.jpg);" id="section-home">
       <div class="container">
         <div class="row align-items-center justify-content-center ftco-vh-100">
           <div class="col-md-10">
@@ -56,7 +65,6 @@
 
     <section class="ftco-section bg-white" id="section-about">
       <div class="container">
-
         <div class="row mb-5">
           <div class="col-md-12 text-center ftco-animate">
             <h2 class="text-uppercase ftco-uppercase">The Silicon Platform</h2>
@@ -72,11 +80,7 @@
         </div> -->
         <!-- END row -->
       </div>
-    </section>
-
-    <section class="ftco-section bg-white" id="section-powered-by">
-      <div class="container">
-
+      <div class="container" style="margin-bottom: 7em;">
         <div class="row mb-5">
           <div class="col-md-12 text-center ftco-animate">
             <div class="row justify-content-center mb-5">
@@ -87,11 +91,10 @@
             </div>
           </div>
         </div>
-        <!-- END row -->
       </div>
     </section>
 
-    <section class="ftco-section bg-white ftco-slant ftco-slant-light" id="section-roadmap">
+    <section class="ftco-section bg-white" id="section-roadmap">
       <div class="container">
         <div class="row">
           <div class="col-md-12 text-center mb-5 ftco-animate">
@@ -137,8 +140,7 @@
               <div class="media-body">
                 <h5 class="mt-0">Q3 2018</h5>
                 <p>Enhance cloud</p>
-                <p>SDK, JS and API integration modules for content creators and users</p>
-                <p>Android and iOS integration modules</p>
+                <p>SDK, JS and API integration modules</p>
               </div>
             </div>
           </div>
@@ -147,8 +149,7 @@
               <div class="media-body">
                 <h5 class="mt-0">Q4 2018</h5>
                 <p>Enhance cloud</p>
-                <p>Browser plugins for users</p>
-                <p>Custom wallet for users on android and iOS</p>
+                <p>Android and iOS integration modules</p>
               </div>
             </div>
           </div>
@@ -165,7 +166,7 @@
     </section>
     <!-- END section -->
 
-    <section class="ftco-section bg-light ftco-slant ftco-slant-white" id="section-team">
+    <section class="ftco-section bg-light" id="section-team">
       <div class="container">
         
         <div class="row">
@@ -282,7 +283,7 @@
     </section>
     <!-- END section -->
 
-    <section class="ftco-section ftco-slant bg-white ftco-slant ftco-slant-light" id="section-faq">
+    <section class="ftco-section bg-white" id="section-faq">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-12 text-center ftco-animate">
@@ -308,7 +309,7 @@
           </div>
           <div class="col-md-6 mb-5 ftco-animate">
             <h3 class="h5 mb-4">Are you capable of building the product?</h3>
-            <p>We have over 30 engineers in our team with lead developers with over 15 years of experience. We adapted the neon wallet to support Nep5 tokens for other ICO before it was done officially. We reimplemented an offchain synchronization mechanism for NEO to reduce the system requirements, use multithreads and change the storage mechanism from files to NoSql database for faster performance. We are consulting multiple ICOs at the time with their architecture and development that will be launched soon.</p>
+            <p>We have over 30 engineers in our team with lead developers with over 15 years of experience. We adapted the neon wallet to support Nep5 tokens for other ICO before it was done officially. We reimplemented an offchain synchronization mechanism for NEO to reduce the system requirements, use multithreads and change the storage mechanism from files to NoSql database for faster performance.</p>
           </div>
           <div class="col-md-6 mb-5 ftco-animate">
             <h3 class="h5 mb-4">Where is Allcode located?</h3>
@@ -318,7 +319,7 @@
       </div>
     </section>
 
-    <section class="ftco-section bg-light ftco-slant ftco-slant-dark" id="section-contact">
+    <section class="ftco-section bg-light" id="section-contact">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
@@ -355,9 +356,10 @@
           <div class="col-md-4">
             <div class="ftco-footer-widget mb-4">
               <ul class="ftco-footer-social list-unstyled float-md-right float-lft">
-                <li><a href="https://twitter.com/allcodecom"><span class="icon-twitter"></span></a></li>
-                <li><a href="https://www.facebook.com/allcodecom"><span class="icon-facebook"></span></a></li>
-                <li><a href="#"><span class="icon-telegram"></span></a></li>
+                <li><a href="https://twitter.com/SiliconToken" target="_blank"><span class="icon-twitter"></span></a></li>
+                <li><a href="https://www.facebook.com/silicontoken" target="_blank"><span class="icon-facebook"></span></a></li>
+                <li><a href="https://github.com/orgs/SiliconToken" target="_blank"><span class="icon-github"></span></a></li>
+                <li><a href="https://discord.gg/KRpzZk" target="_blank"><span class="icon-discord"></span></a></li>
               </ul>
             </div>
           </div>

@@ -140,7 +140,6 @@ $(document).ready(function($) {
 	contentWayPoint();
 	$("#emailButton").click(function () {
 
-
 		var url = "/sendEmail";
 		var message = $('#message').val();
 		var name = $('#name').val();
@@ -183,9 +182,19 @@ $(document).ready(function($) {
 				dataType: "json"
 			});
 		} else {
-			alert("required field are empty");
+			alert("required fields are empty");
 		}
 	});
+
+
+
+	$( "#whitelistForm" ).submit(function( event ) {
+		//validate here;
+
+	});
+
+
+
 	// navigation
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #ftco-nav ul li a[href^='#']").on('click', function(e) {

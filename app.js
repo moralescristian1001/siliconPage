@@ -53,17 +53,34 @@ if (cluster.isMaster) {
     });
 
     app.post('/sendEmail', function (req, res) {
-        var reqJson = req.body;
-        var destArray = reqJson.dest;
-        var title = "Silicon contact form";
-        var message = reqJson.name +": " + reqJson.message;
-        try{
-            sendMailUser(destArray, title, message, res);
-        }catch(err){
-            res.send(error);
+            var reqJson = req.body;
+            var destArray = reqJson.dest;
+            var title = "Silicon contact form";
+            var message = reqJson.name +": " + reqJson.message;
+            try{
+                sendMailUser(destArray, title, message, res);
+            }catch(err){
+                res.send(error);
+            }
+            res.send('{"message":"ok"}');
         }
-        res.send('{"message":"ok"}');
-    }
+    );
+
+    app.post('/sendWhitelist', function (req, res) {
+            var reqJson = req.body;
+            var destArray = reqJson.dest;
+            var name = reqJson.name;
+            var message = "Request for whitelist " + reqJson.contribution;
+            var contribution = reqJson.contribution;
+            var email = reqJson.email;
+            var country = reqJson.country;
+            try{
+                sendMailWhitelist(destArray, name, message, email, contribution, country, res);
+            }catch(err){
+                res.send(error);
+            }
+            res.send('{"message":"ok"}');
+        }
     );
 
     var port = process.env.PORT || 3000;
@@ -116,4 +133,49 @@ function sendMailUser(dest, title, message,res) {
             console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
         });
     });
+}
+
+function sendMailWhitelist(dest, name, message, email, contribution, country, res) {
+    nodemailer.createTestAccount((err, account) => {
+
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: 'smtp.gmail.com',
+            port: 587,
+            secure: false,                                // true for 465, false for other ports 587
+
+            auth: {
+                user: 'aprada@mobileaws.com',          // generated ethereal user
+                pass: 'Colombia1+'                       // generated ethereal password
+            },
+            tls: {
+                // do not fail on invalid certs
+                rejectUnauthorized: false
+            }
+        });
+
+    // setup email data with unicode symbols
+    let mailOptions = {
+        from: '"Silicon contact form-No Reply" <aprada@mobileaws.com>',       // sender address
+        to: 'andres@allcode.com,joel@allcode.com,mike@allcode.com',                           // list of receivers
+        subject: 'White List',                            // Subject line
+        // plain text body
+        html: '<h1> White List </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
+        attachments:
+            [
+            ]
+    };
+
+    // send mail with defined transport object
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            res.send({ "message": "error" });
+            return console.log(error);
+        }
+        res.send({ "message": "ok" });
+    console.log('Message sent: %s', info.messageId);
+    // Preview only available when sending through an Ethereal account
+    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+});
+});
 }

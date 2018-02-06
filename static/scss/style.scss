@@ -38,11 +38,12 @@ h1, h2, h3, h4, h5,
 }
 
 .ftco-navbar-light {
-	background: transparent!important;
+	background: #fff !important;
 	position: absolute;
 	left: 0;
 	right: 0;
 	z-index: 3;
+	padding: 0;
 	@media screen and (max-width: 991px) {
 		background: $black!important;
 		top: 0;
