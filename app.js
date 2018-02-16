@@ -1,6 +1,9 @@
 // Include the cluster module
 var cluster = require('cluster');
 
+// Express minify
+var minify = require('express-minify');
+
 // Code to run if we're in the master process
 if (cluster.isMaster) {
 
@@ -29,6 +32,9 @@ if (cluster.isMaster) {
     var path = require("path");
     var nodemailer = require('nodemailer');
     var app = express();
+
+    // minify
+    app.use(minify({cache: __dirname + '/cache'}));
 
     app.set('view engine', 'ejs');
     app.set('views', __dirname + '/views');
