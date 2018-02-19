@@ -7,6 +7,9 @@ var minify = require('express-minify');
 // Express minify html
 var minifyHTML = require('express-minify-html');
 
+// Express Compress
+var compression = require('compression')
+
 // Code to run if we're in the master process
 if (cluster.isMaster) {
 
@@ -52,6 +55,9 @@ if (cluster.isMaster) {
             minifyJS:                  true
         }
     }));
+
+    // compress responses
+    app.use(compression())
 
     app.set('view engine', 'ejs');
     app.set('views', __dirname + '/views');
