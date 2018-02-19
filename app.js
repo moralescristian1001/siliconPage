@@ -4,6 +4,9 @@ var cluster = require('cluster');
 // Express minify
 var minify = require('express-minify');
 
+// Express minify html
+var minifyHTML = require('express-minify-html');
+
 // Code to run if we're in the master process
 if (cluster.isMaster) {
 
@@ -35,6 +38,20 @@ if (cluster.isMaster) {
 
     // minify
     app.use(minify({cache: __dirname + '/cache'}));
+
+    // minify html
+    app.use(minifyHTML({
+        override:      true,
+        exception_url: false,
+        htmlMinifier: {
+            removeComments:            true,
+            collapseWhitespace:        true,
+            collapseBooleanAttributes: true,
+            removeAttributeQuotes:     true,
+            removeEmptyAttributes:     true,
+            minifyJS:                  true
+        }
+    }));
 
     app.set('view engine', 'ejs');
     app.set('views', __dirname + '/views');
