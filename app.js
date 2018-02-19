@@ -74,6 +74,7 @@ if (cluster.isMaster) {
     
     app.use("/static", express.static( __dirname + '/static'));
     app.get('/', function (req, res) {
+        res.setHeader('Cache-Control', 'public, max-age=31622400');
         res.render('index', {
             static_path: 'static',
             theme: process.env.THEME || 'flatly',
