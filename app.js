@@ -39,6 +39,9 @@ if (cluster.isMaster) {
     var nodemailer = require('nodemailer');
     var app = express();
 
+    // compress responses
+    app.use(compression());
+
     // minify
     app.use(minify({cache: __dirname + '/cache'}));
 
@@ -55,9 +58,6 @@ if (cluster.isMaster) {
             minifyJS:                  true
         }
     }));
-
-    // compress responses
-    app.use(compression())
 
     app.set('view engine', 'ejs');
     app.set('views', __dirname + '/views');
