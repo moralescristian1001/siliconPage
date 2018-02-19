@@ -122,90 +122,82 @@ if (cluster.isMaster) {
 
 function sendMailUser(dest, title, message,res) {
     nodemailer.createTestAccount((err, account) => {
+      // create reusable transporter object using the default SMTP transport
+      let transporter = nodemailer.createTransport({
+        host: process.env.SENDGRID_SMTP_URL,
+        port: process.env.SENDGRID_SMTP_PORT,
+        secure: false, // true for 465, false for other ports 587
+        auth: {
+          user: process.env.SENDGRID_USERNAME, // generated ethereal user
+          pass: process.env.SENDGRID_PASSWORD  // generated ethereal password
+        },
+        tls: {
+          // do not fail on invalid certs
+          rejectUnauthorized: false
+        }
+      });
 
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,                                // true for 465, false for other ports 587
+      // setup email data with unicode symbols
+      let mailOptions = {
+        from: '"Silicon contact form-No Reply" <' + process.env.FROM_EMAIL + '>', // sender address
+        to: process.env.RECIPIENTS_LIST, // list of receivers
+        subject: 'Silicon contact form', // Subject line
+        // plain text body
+        html: '<h1> Silicon contact form </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
+        attachments: []
+      };
 
-            auth: {
-                user: 'aprada@mobileaws.com',          // generated ethereal user
-                pass: 'Colombia1+'                       // generated ethereal password
-            },
-            tls: {
-                // do not fail on invalid certs
-                rejectUnauthorized: false
-            }
-        });
-
-        // setup email data with unicode symbols
-        let mailOptions = {
-            from: '"Silicon contact form-No Reply" <aprada@mobileaws.com>',       // sender address
-            to: 'andres@allcode.com,joel@allcode.com,mike@allcode.com',                           // list of receivers
-            subject: 'Silicon contact form',                            // Subject line
-                      // plain text body
-            html: '<h1> Silicon contact form </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
-            attachments:
-                [
-                ]
-        };
-
-        // send mail with defined transport object
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-                res.send({ "message": "error" });
-                return console.log(error);
-            }
-            res.send({ "message": "ok" });
-            console.log('Message sent: %s', info.messageId);
-            // Preview only available when sending through an Ethereal account
-            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-        });
+      // send mail with defined transport object
+      transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+          res.send({ "message": "error" });
+          return console.log(error);
+        }
+        res.send({ "message": "ok" });
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+      });
     });
 }
 
 function sendMailWhitelist(dest, name, message, email, contribution, country, res) {
     nodemailer.createTestAccount((err, account) => {
-
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'smtp.gmail.com',
-            port: 587,
-            secure: false,                                // true for 465, false for other ports 587
-
-            auth: {
-                user: 'aprada@mobileaws.com',          // generated ethereal user
-                pass: 'Colombia1+'                       // generated ethereal password
-            },
-            tls: {
-                // do not fail on invalid certs
-                rejectUnauthorized: false
-            }
-        });
+    // create reusable transporter object using the default SMTP transport
+    let transporter = nodemailer.createTransport({
+      host: process.env.SENDGRID_SMTP_URL,
+      port: process.env.SENDGRID_SMTP_PORT,
+      secure: false, // true for 465, false for other ports 587
+      auth: {
+        user: process.env.SENDGRID_USERNAME, // generated ethereal user
+        pass: process.env.SENDGRID_PASSWORD // generated ethereal password
+      },
+      tls: {
+        // do not fail on invalid certs
+        rejectUnauthorized: false
+      }
+    });
 
     // setup email data with unicode symbols
     let mailOptions = {
-        from: '"Silicon contact form-No Reply" <aprada@mobileaws.com>',       // sender address
-        to: 'andres@allcode.com,joel@allcode.com,mike@allcode.com',                           // list of receivers
-        subject: 'White List',                            // Subject line
-        // plain text body
-        html: '<h1> White List </h1></br><p>' + message + '</p></br><p> '+dest+'</p>',   // html body
-        attachments:
-            [
-            ]
+      from: '"Silicon contact form-No Reply" <' + process.env.FROM_EMAIL + '>', // sender address
+      to: process.env.RECIPIENTS_LIST, // list of receivers
+      subject: 'White List', // Subject line
+      // plain text body
+      html: '<h1> White List </h1></br><p>' + message + '</p></br><p> '+dest+'</p>', // html body
+      attachments: []
     };
 
     // send mail with defined transport object
     transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-            res.send({ "message": "error" });
-            return console.log(error);
-        }
-        res.send({ "message": "ok" });
-    console.log('Message sent: %s', info.messageId);
-    // Preview only available when sending through an Ethereal account
-    console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-});
-});
+      if (error) {
+        res.send({ "message": "error" });
+        return console.log(error);
+      }
+      res.send({ "message": "ok" });
+      console.log('Message sent: %s', info.messageId);
+      // Preview only available when sending through an Ethereal account
+      console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    });
+  });
 }
