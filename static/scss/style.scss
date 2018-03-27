@@ -653,3 +653,60 @@ textarea {
     stroke-dashoffset: -136px;
   }
 }
+   .fixed-action-btn {
+    position: fixed;
+    z-index: 998;
+    right: 35px;
+    bottom: 35px;
+    margin-bottom: 0;
+    padding-top: 15px;
+}
+a.waves-effect, a.waves-light {
+    display: inline-block;
+}
+.btn-floating {
+    width: 47px;
+    height: 47px;
+    position: relative;
+    z-index: 1;
+    vertical-align: middle;
+    display: inline-block;
+    overflow: hidden;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+    margin: 10px;
+    border-radius: 50%;
+    padding: 0;
+    cursor: pointer;
+}
+@media only screen and (min-width: 500px) {
+  .right-floating {
+      position: fixed;
+      bottom: 32%;
+      right: 1px;
+      z-index: 120;
+  }
+  .right-floating .btn{
+    padding: 20px 15px;
+  }
+  .right-floating button a{
+    color: #fff !important;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 499px) {
+.right-floating {
+  display: none;
+      position: fixed;
+      bottom: 32%;
+      right: 1px;
+      z-index: 120;
+  }
+  .right-floating .btn{
+    padding: 20px 15px;
+  }
+  .right-floating button a{
+    color: #fff !important;
+    font-size: 20px;
+  }
+}

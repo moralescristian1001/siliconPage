@@ -618,3 +618,34 @@ textarea {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+@media only screen and (min-width: 500px) {
+  .right-floating {
+      position: fixed;
+      bottom: 32%;
+      right: 1px;
+      z-index: 120;
+  }
+  .right-floating .btn{
+    padding: 20px 15px;
+  }
+  .right-floating button a{
+    color: #fff !important;
+    font-size: 20px;
+  }
+}
+@media only screen and (max-width: 499px) {
+.right-floating {
+  display: none;
+      position: fixed;
+      bottom: 32%;
+      right: 1px;
+      z-index: 120;
+  }
+  .right-floating .btn{
+    padding: 20px 15px;
+  }
+  .right-floating button a{
+    color: #fff !important;
+    font-size: 20px;
+  }
+}
